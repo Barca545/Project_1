@@ -1,24 +1,20 @@
-from tkinter import BOTH, Canvas, Event, Grid, Tk
+from tkinter import Event, Grid, Tk
 from game_board import Game
 
-
-
 root = Tk()
-# root.attributes('-fullscreen', True)
-height = 800
-width = 800
+height = 600
+width = 600
 root.geometry(f'{height}x{width}')
 Grid.rowconfigure(root, 0, weight=1)
 Grid.columnconfigure(root, 0, weight=1)
     
-
 def quit(event=None):
+    # modify so it saves on close
     root.destroy()
 
-root.bind('<Escape>', quit)
-
-
 #Create the gameboard
-board = Game(root,width=width, height=height, rows_columns=5)
-board.create_grid_buttons() 
+game = Game(root, rows_columns=3)
+game.create_grid_buttons() 
+
+root.bind('<Escape>', quit)
 root.mainloop()
