@@ -1,4 +1,4 @@
-from tkinter import Frame, Tk,Button
+from tkinter import Frame, Label, Tk,Button
 
 class Game:
     def __init__(self, root: Tk, rows_columns:int) -> None:
@@ -210,6 +210,12 @@ class Game:
         for cell in self.frame.winfo_children():
             cell.destroy()
         # Display a label indicating the winner
+        if self.winner != "Tie":
+            label = Label(self.frame, text=f"{self.winner} Won!!")
+        else:
+            label = Label(self.frame, text=f"{self.winner}")
+        # Style the label
+        label.pack()
     
 button_style = {
     "bg": "lightgray",      
